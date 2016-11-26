@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, null, {
+var game = new Phaser.Game(800, 450, Phaser.AUTO, null, {
       preload: preload, create: create, update: update
     });
 
@@ -12,7 +12,9 @@ var platforms;
 
 function create() 
 {
-	ground = game.add.sprite(0,0, 'background');
+	platforms = game.add.group();
+
+	background = game.add.sprite(0,0, 'background');
 
 }
 function update() 
