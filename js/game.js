@@ -85,6 +85,11 @@ function update()
 function generatePillars()
 {
 	console.log('generate pillars');
+	pillars = game.add.sprite(game.world.width + 100, game.world.height - 99 , 'pillar');
+	game.physics.enable(pillars, Phaser.Physics.ARCADE);
+	pillars.body.velocity.set(-200, 0);
+
+
 }
 
 
@@ -92,6 +97,7 @@ function generatePillars()
 function jump() {
 	if(hitGround){
 		ball.body.velocity.y = -spaceKey.duration*2.3;
+
 	}
 	
 }
