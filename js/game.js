@@ -100,8 +100,6 @@ function update()
 
 
 
-
-
 function generatePillars()
 {
 	var pillar;
@@ -112,26 +110,32 @@ function generatePillars()
 	{	
 		if(randX - 60 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
 		{
-			pillar = game.add.sprite(randX, game.world.height - 99, 'pillar');
+			pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
 			game.physics.enable(pillar, Phaser.Physics.ARCADE);
 			pillar.body.immovable = true;
 			pillar.body.velocity.set(-200,0);
+			pillar.anchor.setTo(0.5, 1);
+			pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
 			pillars.push(pillar);
 			
 		}
 	}
 	else
 	{
-			pillar = game.add.sprite(randX, game.world.height - 99, 'pillar');
+			pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
 			game.physics.enable(pillar, Phaser.Physics.ARCADE);
 			pillar.body.immovable = true;
 			pillar.body.velocity.set(-200,0);
+			pillar.anchor.setTo(0.5, 1);
+			pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
 			pillars.push(pillar);
 	}
 }
 
 
 function destroyPillars() {
+
+
 	pillars.forEach(function(item, index, array) {
 		if((item.x+item.width) < 0) {
 			item.destroy();
