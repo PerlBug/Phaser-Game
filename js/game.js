@@ -23,6 +23,7 @@ var spaceKey;
 var ground;
 
 
+
 function create() 
 {
 
@@ -39,7 +40,7 @@ function create()
 
 	platforms = game.add.group(); 
 	ground = game.add.tileSprite(0, game.world.height - 50, game.world.width, 50, 'ground');
-	ball = game.add.sprite(50, 50, 'ball');
+	ball = game.add.sprite(100, 50, 'ball');
 
 	game.physics.enable([ball, ground], Phaser.Physics.ARCADE);
 	platforms.enableBody = true;
@@ -54,8 +55,8 @@ function create()
 
 	
 	ball.body.collideWorldBounds = true; //treating boundaries as collision objects
-	ball.body.bounce.set(0.3); //setting bounce
-	ball.body.gravity.set(0,700); //setting gravity
+	ball.body.bounce.set(0.2); //setting bounce
+	ball.body.gravity.set(0,1500); //setting gravity
 	ball.body.velocity.set(0, 150); //setting x and y velocity to the ball
 
 	 //adding physics to ball
@@ -66,15 +67,19 @@ function create()
 
 function update() 
 {
+	var jumpHeight = 0;
 	var hitPlatform = game.physics.arcade.collide(ball, platforms);
 	var hitGround = game.physics.arcade.collide(ball, ground);
-	
-	if(spaceKey.isDown && hitGround)
-	{
-		ball.body.velocity.y = -300;
-	}
 
-	ball.angle += 30;
+
+	spaceKey.onUp.add(jump);
+	ball.angle += 20;
 
 }
-  
+
+function jump() {
+	ball.body.velocity.y = -spaceKey.duration*2;
+}
+
+
+
