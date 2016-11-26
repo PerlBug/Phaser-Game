@@ -111,7 +111,7 @@ function generatePillars()
 
 	if(pillars.length > 0)
 	{	
-		if(randX - 120 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
+		if(randX - 150 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
 		{
 			pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
 			game.physics.enable(pillar, Phaser.Physics.ARCADE);
