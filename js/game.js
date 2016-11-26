@@ -84,11 +84,7 @@ function update()
 
 	spaceKey.onUp.add(jump);
 
-	if(spaceKey.isDown && hitGround) {
-		ball.body.velocity.y = -700;
-
-		ball.body.velocity.x = 50;
-	}
+	
 	ball.angle += 20;
 
 	if(pillars.length < MAX_PILLARS)
@@ -153,7 +149,7 @@ function destroyPillars() {
 	
 
 function jump() {
-	/* 
+	 
 	if(hitGround){
 		ball.body.velocity.y = -spaceKey.duration*4;
 
@@ -161,7 +157,7 @@ function jump() {
   
 	}
 
-	*/
+	
 
 
 	
