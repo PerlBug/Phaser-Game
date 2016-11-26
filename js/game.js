@@ -20,7 +20,10 @@ var platforms;
 var ball;
 var ballXScale = 0.2;
 var ballYScale = 0.2;
+
 var spaceKey;
+var right
+
 var ground;
 var pillars = [];
 var hitPlatform; 
@@ -108,7 +111,7 @@ function generatePillars()
 
 	if(pillars.length > 0)
 	{	
-		if(randX - 60 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
+		if(randX - 120 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
 		{
 			pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
 			game.physics.enable(pillar, Phaser.Physics.ARCADE);
@@ -147,7 +150,7 @@ function destroyPillars() {
 	
 
 function jump() {
-	if(hitGround){
+	if(hitGround ){
 		ball.body.velocity.y = -spaceKey.duration*2.3;
 
 		ball.body.velocity.x = 100;
