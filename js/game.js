@@ -23,8 +23,8 @@ function create()
 {
 
 
-	//initilizing arcade physics
-	game.physics.startSystem(Phaser.Physics.ARCADE);
+	
+	game.physics.startSystem(Phaser.Physics.ARCADE); //initilizing arcade physics
 	platforms = game.add.group();
 
 
@@ -36,10 +36,12 @@ function create()
 	ball.scale.setTo(0.2, 0.2);
 
 
-	//adding physics to ball
-	game.physics.enable(ball, Phaser.Physics.ARCADE);
-	//setting x and y velocity to the ball
-	ball.body.velocity.set(150, 150);
+	
+	game.physics.enable(ball, Phaser.Physics.ARCADE); //adding physics to ball
+	ball.body.collideWorldBounds = true; //treating boundaries as collision objects
+	ball.body.bounce.set(1); //setting bounce 
+	
+	ball.body.velocity.set(0, 150); //setting x and y velocity to the ball
 
 
 }
