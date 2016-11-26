@@ -102,6 +102,7 @@ function update()
 function generatePillars()
 {
 	var pillar;
+	var randPos;
 
 	pillar = game.add.sprite(game.world.width + (Math.random() * 800), game.world.height - 99, 'pillar');
 	game.physics.enable(pillar, Phaser.Physics.ARCADE);
