@@ -18,16 +18,17 @@ var ball;
 
 function create() 
 {
+	//initilizing arcade physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	platforms = game.add.group();
-
-	background = game.add.sprite(0,0, 'background');
 
 	background = game.add.sprite(0,0, 'background');
 	ball = game.add.sprite(50, 50, 'ball');
 	ball.scale.setTo(0.5, 0.5);
 
+	//adding physics to ball
 	game.physics.enable(ball, Phaser.Physics.ARCADE);
+	//setting x and y velocity to the ball
 	ball.body.velocity.set(150, 150);
 
 }
