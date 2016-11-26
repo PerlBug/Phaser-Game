@@ -28,7 +28,7 @@ var hitGround;
 var hitPillar;
 
 
-var MAX_PILLARS = 6;
+var MAX_PILLARS = 10;
 
 
 
@@ -98,27 +98,38 @@ function update()
 }
 
 
+
+
 function generatePillars()
 {
 	var pillar;
 	var randX = game.world.width + (Math.random() * 800);
-	console.log('generate pillars'); 
 
 
-
-
-	pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
-
-
-
-	game.physics.enable(pillar, Phaser.Physics.ARCADE);
-	pillar.anchor.setTo(0.5, 1);
-	pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
-	pillar.body.immovable = true;
-	pillar.body.velocity.set(-200,0);
-	pillars.push(pillar);
-	console.log(pillars);
-	//game.world.width + 50
+	if(pillars.length > 0)
+	{	
+		if(randX - 40 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
+		{
+			pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
+			game.physics.enable(pillar, Phaser.Physics.ARCADE);
+			pillar.body.immovable = true;
+			pillar.body.velocity.set(-200,0);
+			pillar.anchor.setTo(0.5, 1);
+			pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
+			pillars.push(pillar);
+			
+		}
+	}
+	else
+	{
+			pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
+			game.physics.enable(pillar, Phaser.Physics.ARCADE);
+			pillar.body.immovable = true;
+			pillar.body.velocity.set(-200,0);
+			pillar.anchor.setTo(0.5, 1);
+			pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
+			pillars.push(pillar);
+	}
 }
 
 
