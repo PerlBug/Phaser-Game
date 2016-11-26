@@ -21,7 +21,8 @@ var ballXScale = 0.2;
 var ballYScale = 0.2;
 var spaceKey;
 var ground;
-
+var hitPlatform = game.physics.arcade.collide(ball, platforms);
+var hitGround = game.physics.arcade.collide(ball, ground);
 
 
 function create() 
@@ -67,9 +68,7 @@ function create()
 
 function update() 
 {
-	var jumpHeight = 0;
-	var hitPlatform = game.physics.arcade.collide(ball, platforms);
-	var hitGround = game.physics.arcade.collide(ball, ground);
+	
 
 
 	spaceKey.onUp.add(jump);
@@ -78,7 +77,10 @@ function update()
 }
 
 function jump() {
-	ball.body.velocity.y = -spaceKey.duration*2;
+	if(hitGround){
+		ball.body.velocity.y = -spaceKey.duration*2;
+	}
+	
 }
 
 
