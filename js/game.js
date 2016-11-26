@@ -25,25 +25,29 @@ function create()
 
 	//initilizing arcade physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
-	platforms = game.add.group();
+	
 
 
 	background = game.add.sprite(0,0, 'background');
 
 
 	platforms = game.add.group();
+	platforms.enableBody = true;
 	var ground = platforms.create(0, game.world.height - 50, 'ground');
 
 	ground.scale.setTo(8,1);
 	ground.body.immovable = true;
+
+
 	ball = game.add.sprite(50, 50, 'ball');
-	ball.scale.setTo(0.5, 0.5);
+	ball.scale.setTo(0.5, 0.5); 
 
 
 	//adding physics to ball
 	game.physics.enable(ball, Phaser.Physics.ARCADE);
 	//setting x and y velocity to the ball
 	ball.body.velocity.set(150, 150);
+	ball.body.collideWorldBounds = true;
 
 
 }
@@ -51,5 +55,5 @@ function create()
 
 function update() 
 {
-
+	var hitPlatform = game.physics.arcade.collide(ball, platforms);
 }
