@@ -79,7 +79,7 @@ function update()
 
 function jump() {
 	if(hitGround){
-		ball.body.velocity.y = -spaceKey.duration*2.5;
+		ball.body.velocity.y = -spaceKey.duration*2.3;
 	}
 	
 }
