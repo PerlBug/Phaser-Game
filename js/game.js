@@ -66,7 +66,7 @@ function create()
 
 	
 	ball.body.collideWorldBounds = true; //treating boundaries as collision objects
-	ball.body.bounce.set(0.2); //setting bounce
+	ball.body.bounce.set(0.1); //setting bounce
 	ball.body.gravity.set(0,1500); //setting gravity
 	ball.body.velocity.set(0, 150); //setting x and y velocity to the ball
 
@@ -86,6 +86,8 @@ function update()
 	//game.time.events.loop(Phaser.Timer.SECOND * 10, generatePillars, this);
 
 	spaceKey.onUp.add(jump);
+
+	
 	ball.angle += 20;
 
 	if(pillars.length < MAX_PILLARS)
@@ -114,11 +116,11 @@ function generatePillars()
 		if(randX - 150 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
 		{
 			pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
-			game.physics.enable(pillar, Phaser.Physics.ARCADE);
+			game.physics.enable([ball,pillar], Phaser.Physics.ARCADE);
 			pillar.body.immovable = true;
 			pillar.body.velocity.set(-200,0);
 			pillar.anchor.setTo(0.5, 1);
-			pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
+			pillar.scale.setTo(1, (Math.random() * (1 - 0.4) + 0.4));
 			pillars.push(pillar);
 			
 		}
@@ -130,7 +132,7 @@ function generatePillars()
 			pillar.body.immovable = true;
 			pillar.body.velocity.set(-200,0);
 			pillar.anchor.setTo(0.5, 1);
-			pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
+			pillar.scale.setTo(1, (Math.random() * (1 - 0.4) + 0.4));
 			pillars.push(pillar);
 	}
 }
@@ -150,11 +152,17 @@ function destroyPillars() {
 	
 
 function jump() {
+
 	if(hitGround ){
-		ball.body.velocity.y = -spaceKey.duration*2.3;
+		ball.body.velocity.y = -spaceKey.duration*3;
+
 
 		ball.body.velocity.x = 100;
-
+  
 	}
+
+	
+
+
 	
 }
