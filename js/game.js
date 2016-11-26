@@ -39,7 +39,7 @@ function create()
 	
 	game.physics.enable(ball, Phaser.Physics.ARCADE); //adding physics to ball
 	ball.body.collideWorldBounds = true; //treating boundaries as collision objects
-	ball.body.bounce.set(1); //setting bounce 
+	ball.body.bounce.set(0); //setting bounce 
 	
 	ball.body.velocity.set(0, 150); //setting x and y velocity to the ball
 
