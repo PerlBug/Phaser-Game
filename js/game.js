@@ -33,7 +33,7 @@ function create()
 	var ground = platforms.create(0, game.world.height - 50, 'ground');
 	ground.scale.setTo(8,1);
 	ball = game.add.sprite(50, 50, 'ball');
-	ball.scale.setTo(0.5, 0.5);
+	ball.scale.setTo(0.2, 0.2);
 
 
 	//adding physics to ball
