@@ -11,6 +11,7 @@ function preload() {
 	game.load.image('ground', 'assets/ground.png');
 	game.load.image('ball','assets/ball.png');
 	game.load.image('pillar','assets/pillar.png');
+	scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 
 }
 
@@ -30,6 +31,8 @@ var hitPlatform;
 var hitGround;
 var hitPillar;
 
+var score = 0;
+var scoreText;
 
 var MAX_PILLARS = 5;
 
