@@ -22,7 +22,7 @@ var ballXScale = 0.2;
 var ballYScale = 0.2;
 var spaceKey;
 var ground;
-var pillars;
+var pillars = [];
 var hitPlatform; 
 var hitGround;
 
@@ -66,7 +66,8 @@ function create()
 	 //adding physics to ball
 	spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-	pillars = game.time.events.loop(Phaser.Timer.SECOND * 3, generatePillars, this);
+	game.time.events.loop(Phaser.Timer.SECOND * 1, generatePillars, this);
+	game.time.events.loop(Phaser.Timer.SECOND * 1, destroyPillars, this);	
 
 }
 
@@ -79,12 +80,28 @@ function update()
 	spaceKey.onUp.add(jump);
 	ball.angle += 20;
 
+
 }
 
 
 function generatePillars()
 {
+	var pillar;
 	console.log('generate pillars');
+	pillar = game.add.sprite(game.world.width + 50, game.world.height - 99, 'pillar');
+	game.physics.enable(pillar, Phaser.Physics.ARCADE);
+	pillar.body.velocity.set(-200,0);
+	pillars.push(pillar);
+
+}
+
+function destroyPillars() {
+	pillars.forEach(function(item, index, array) {
+		if((item.x+item.width) < 0) {
+			item.destroy();
+			pillars.splice(index, 1);
+		}
+	});
 }
 
 	
