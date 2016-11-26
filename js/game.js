@@ -29,9 +29,13 @@ function create()
 
 
 	background = game.add.sprite(0,0, 'background');
+
+
 	platforms = game.add.group();
 	var ground = platforms.create(0, game.world.height - 50, 'ground');
+
 	ground.scale.setTo(8,1);
+	ground.body.immovable = true;
 	ball = game.add.sprite(50, 50, 'ball');
 	ball.scale.setTo(0.5, 0.5);
 
