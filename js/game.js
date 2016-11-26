@@ -19,6 +19,7 @@ var platforms;
 var ball;
 var ballXScale = 0.2;
 var ballYScale = 0.2;
+var spaceKey;
 
 
 function create() 
@@ -53,7 +54,7 @@ function create()
 	
 	ball.body.velocity.set(0, 150); //setting x and y velocity to the ball
 
-
+	spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 }
 
@@ -61,4 +62,6 @@ function create()
 function update() 
 {
 	var hitPlatform = game.physics.arcade.collide(ball, platforms);
+
+
 }
