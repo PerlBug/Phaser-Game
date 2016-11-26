@@ -18,6 +18,7 @@ var ball;
 
 function create() 
 {
+	game.physics.startSystem(Phaser.Physics.ARCADE);
 	platforms = game.add.group();
 
 	background = game.add.sprite(0,0, 'background');
@@ -25,8 +26,9 @@ function create()
 	background = game.add.sprite(0,0, 'background');
 	ball = game.add.sprite(50, 50, 'ball');
 	ball.scale.setTo(0.5, 0.5);
-	
 
+	game.physics.enable(ball, Phaser.Physics.ARCADE);
+	ball.body.velocity.set(150, 150);
 
 }
 
