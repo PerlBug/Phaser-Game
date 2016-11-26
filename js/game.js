@@ -28,7 +28,7 @@ var hitGround;
 var hitPillar;
 
 
-var MAX_PILLARS = 10;
+var MAX_PILLARS = 5;
 
 
 
@@ -110,7 +110,7 @@ function generatePillars()
 
 	if(pillars.length > 0)
 	{	
-		if(randX - 40 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
+		if(randX - 60 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
 		{
 			pillar = game.add.sprite(randX, game.world.height - 99, 'pillar');
 			game.physics.enable(pillar, Phaser.Physics.ARCADE);
