@@ -16,7 +16,11 @@ function preload() {
 var platforms;
 var ball;
 
-function create() {
+function create() 
+{
+	platforms = game.add.group();
+
+	background = game.add.sprite(0,0, 'background');
 
 	background = game.add.sprite(0,0, 'background');
 	ball = game.add.sprite(50, 50, 'ball');
