@@ -95,6 +95,7 @@ function generatePillars()
 
 }
 
+
 function destroyPillars() {
 	pillars.forEach(function(item, index, array) {
 		if((item.x+item.width) < 0) {
