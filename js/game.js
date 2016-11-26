@@ -44,6 +44,7 @@ function create()
 
 
 	ball = game.add.sprite(50, 50, 'ball');
+	ball.anchor.setTo(0.5, 0.5);
 	ball.scale.setTo(ballXScale, ballYScale);
 
 
@@ -67,5 +68,7 @@ function update()
 	{
 		ball.body.velocity.y = -300;
 	}
+
+	ball.angle += 30;
 
 }
