@@ -88,7 +88,6 @@ function generatePillars()
 }
 
 	
-}
 
 function jump() {
 	if(hitGround){
