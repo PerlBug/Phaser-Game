@@ -101,14 +101,19 @@ function update()
 function generatePillars()
 {
 	var pillar;
+	var randX = game.world.width + (Math.random() * 800);
 	console.log('generate pillars'); 
 
 
-	pillar = game.add.sprite(game.world.width + (Math.random() * 800), game.world.height - 99, 'pillar');
+
+
+	pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
+
+
 
 	game.physics.enable(pillar, Phaser.Physics.ARCADE);
-//	pillar.anchor.setTo(0.5, 1);
-//	pillar.scale.setTo(1, 1);
+	pillar.anchor.setTo(0.5, 1);
+	pillar.scale.setTo(1, 1);
 	pillar.body.immovable = true;
 	pillar.body.velocity.set(-200,0);
 	pillars.push(pillar);
@@ -118,6 +123,8 @@ function generatePillars()
 
 
 function destroyPillars() {
+
+
 	pillars.forEach(function(item, index, array) {
 		if((item.x+item.width) < 0) {
 			item.destroy();
