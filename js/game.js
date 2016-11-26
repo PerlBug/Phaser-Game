@@ -17,6 +17,8 @@ function preload() {
 
 var platforms;
 var ball;
+var ballXScale = 0.2;
+var ballYScale = 0.2;
 
 
 function create() 
@@ -33,13 +35,13 @@ function create()
 	var ground = platforms.create(0, game.world.height - 50, 'ground');
 	ground.scale.setTo(8,1);
 	ball = game.add.sprite(50, 50, 'ball');
-	ball.scale.setTo(0.2, 0.2);
+	ball.scale.setTo(ballXScale, ballYScale);
 
 
 	
 	game.physics.enable(ball, Phaser.Physics.ARCADE); //adding physics to ball
 	ball.body.collideWorldBounds = true; //treating boundaries as collision objects
-	ball.body.bounce.set(0); //setting bounce 
+	ball.body.bounce.set(0); //setting bounce to 0
 	
 	ball.body.velocity.set(0, 150); //setting x and y velocity to the ball
 
