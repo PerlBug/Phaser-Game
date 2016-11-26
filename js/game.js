@@ -18,6 +18,9 @@ var ball;
 
 function create() 
 {
+
+
+
 	//initilizing arcade physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	platforms = game.add.group();
