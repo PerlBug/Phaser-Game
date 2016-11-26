@@ -10,6 +10,7 @@ function preload() {
 	game.load.image('background', 'assets/background.png');
 	game.load.image('ground', 'assets/ground.png');
 	game.load.image('ball','assets/ball.png');
+	game.load.image('pillar','assets/pillar.png');
 
 }
 
@@ -21,6 +22,7 @@ var ballXScale = 0.2;
 var ballYScale = 0.2;
 var spaceKey;
 var ground;
+var pillars;
 
 
 function create() 
@@ -61,6 +63,8 @@ function create()
 	 //adding physics to ball
 	spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
+	pillars = game.time.events.loop(Phaser.Timer.SECOND * 3, generatePillars, this);
+
 }
 
 
@@ -75,6 +79,10 @@ function update()
 	}
 
 	ball.angle += 30;
-
 }
-  
+
+
+function generatePillars()
+{
+	console.log('generate pillars');
+}
