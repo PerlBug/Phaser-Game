@@ -83,6 +83,12 @@ function update()
 	//game.time.events.loop(Phaser.Timer.SECOND * 10, generatePillars, this);
 
 	spaceKey.onUp.add(jump);
+
+	if(spaceKey.isDown && hitGround) {
+		ball.body.velocity.y = -700;
+
+		ball.body.velocity.x = 50;
+	}
 	ball.angle += 20;
 
 	if(pillars.length < MAX_PILLARS)
@@ -115,7 +121,7 @@ function generatePillars()
 			pillar.body.immovable = true;
 			pillar.body.velocity.set(-200,0);
 			pillar.anchor.setTo(0.5, 1);
-			pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
+			pillar.scale.setTo(1, (Math.random() * (1 - 0.4) + 0.4));
 			pillars.push(pillar);
 			
 		}
@@ -127,7 +133,7 @@ function generatePillars()
 			pillar.body.immovable = true;
 			pillar.body.velocity.set(-200,0);
 			pillar.anchor.setTo(0.5, 1);
-			pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
+			pillar.scale.setTo(1, (Math.random() * (1 - 0.4) + 0.4));
 			pillars.push(pillar);
 	}
 }
@@ -147,11 +153,16 @@ function destroyPillars() {
 	
 
 function jump() {
+	/* 
 	if(hitGround){
 		ball.body.velocity.y = -spaceKey.duration*4;
 
 		ball.body.velocity.x = 100;
-
+  
 	}
+
+	*/
+
+
 	
 }
