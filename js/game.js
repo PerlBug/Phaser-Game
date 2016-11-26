@@ -70,6 +70,7 @@ function create()
 	game.time.events.loop(Phaser.Timer.SECOND * 1, generatePillars, this);
 	game.time.events.loop(Phaser.Timer.SECOND * 1, destroyPillars, this);	
 
+
 }
 
 
@@ -89,10 +90,13 @@ function update()
 function generatePillars()
 {
 	var pillar;
-	console.log('generate pillars');
+	console.log('generate pillars'); 
 
-	pillar = game.add.sprite(game.world.width + 50, game.world.height - 99, 'pillar');
+	pillar = game.add.sprite(game.world.width + 50, game.world.height - ground.height, 'pillar');
+
 	game.physics.enable(pillar, Phaser.Physics.ARCADE);
+	pillar.anchor.setTo(0, 1);
+	pillar.scale.setTo(1, 3);
 	pillar.body.immovable = true;
 	pillar.body.velocity.set(-200,0);
 	pillars.push(pillar);
@@ -113,7 +117,10 @@ function destroyPillars() {
 
 function jump() {
 	if(hitGround){
-		ball.body.velocity.y = -spaceKey.duration*2.3;l   
+		ball.body.velocity.y = -spaceKey.duration*2.3;
+
+		ball.body.velocity.x = 100;
+
 
 	}
 	
