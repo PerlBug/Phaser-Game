@@ -113,7 +113,7 @@ function generatePillars()
 
 	if(pillars.length > 0)
 	{	
-		if(randX - 150 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
+		if(randX - 200 > pillars[pillars.length - 1].x + pillars[pillars.length - 1].width)
 		{
 			pillar = game.add.sprite(randX, game.world.height - ground.height, 'pillar');
 			game.physics.enable([ball,pillar], Phaser.Physics.ARCADE);
@@ -157,7 +157,7 @@ function jump() {
 		ball.body.velocity.y = -spaceKey.duration*3;
 
 
-		ball.body.velocity.x = 100;
+		ball.body.velocity.x = 50;
   
 	}
 
