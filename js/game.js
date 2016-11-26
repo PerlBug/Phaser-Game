@@ -113,7 +113,7 @@ function generatePillars()
 
 	game.physics.enable(pillar, Phaser.Physics.ARCADE);
 	pillar.anchor.setTo(0.5, 1);
-	pillar.scale.setTo(1, 1);
+	pillar.scale.setTo(1, (Math.random() * (2 - 0.4) + 0.4));
 	pillar.body.immovable = true;
 	pillar.body.velocity.set(-200,0);
 	pillars.push(pillar);
