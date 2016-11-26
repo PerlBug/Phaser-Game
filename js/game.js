@@ -29,6 +29,7 @@ var hitPillar;
 
 
 
+
 function create() 
 {
 
@@ -67,15 +68,25 @@ function create()
 	 //adding physics to ball
 	spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-	game.time.events.loop(Phaser.Timer.SECOND * 1, generatePillars, this);
+	//game.time.events.loop(Phaser.Timer.SECOND * 0.5 generatePillars, this);
+	
 	game.time.events.loop(Phaser.Timer.SECOND * 1, destroyPillars, this);	
 
-
+	function loop() {
+	    var rand = Math.round(Math.random() * (1 - 2)) + 2;
+    		setTimeout(function() {
+         
+         	generatePillars();
+            loop();  
+    		}, 200);
+	}
 }
 
 
 function update() 
 {
+
+
 	hitPlatform = game.physics.arcade.collide(ball, platforms);
 	hitGround = game.physics.arcade.collide(ball, ground);
 	hitPillar = game.physics.arcade.collide(ball, pillars);
@@ -96,7 +107,7 @@ function generatePillars()
 
 	game.physics.enable(pillar, Phaser.Physics.ARCADE);
 	pillar.anchor.setTo(0.5, 1);
-	pillar.scale.setTo(1, Math.random());
+	pillar.scale.setTo(1, 1);
 	pillar.body.immovable = true;
 	pillar.body.velocity.set(-200,0);
 	pillars.push(pillar);
@@ -124,4 +135,8 @@ function jump() {
 
 	}
 	
+}
+
+function randomDecimal(x,y) {
+	return (Math.random() * (x - y) + y);
 }
