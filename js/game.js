@@ -16,6 +16,8 @@ function preload() {
 }
 
 
+var scoreText;
+var score = 0;
 
 var platforms;
 var ball;
@@ -35,7 +37,7 @@ var score = 0;
 var scoreText;
 
 var MAX_PILLARS = 5;
-
+var pillar;
 
 
 function create() 
@@ -81,6 +83,8 @@ function create()
 
 	 //adding physics to ball
 	spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+	scoreText = game.add.text(5, 5, 'Score: 0', { font: '18px Arial', fill: '#0095DD' });
 }
 
 
@@ -114,6 +118,13 @@ function update()
 		ball.body.velocity.x   = -5;
 	}
 
+
+	if((pillars[0].x <= ball.x ) && (pillars.length > 0))  {
+		
+		score += 1;
+    	scoreText.setText('Points: '+score);
+	}
+
 }
 
 
@@ -121,7 +132,7 @@ function update()
 
 function generatePillars()
 {
-	var pillar;
+	
 	var randX = game.world.width + (Math.random() * 800);
 
 
