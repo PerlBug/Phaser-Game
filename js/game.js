@@ -103,6 +103,11 @@ function update()
 		destroyPillars();
 	}
 
+	if(pillars.length > 0)
+	{
+		//scoring();
+	}
+
 }
 
 
@@ -150,6 +155,7 @@ function destroyPillars() {
 			pillars.splice(index, 1);
 		}
 	});
+
 }
 
 	
@@ -164,6 +170,17 @@ function jump() {
   
 	}
 
+function scoring() {
+
+	for(var i = 0; i < pillars.length; i++)
+	{
+		if(pillar.x <= ball.x)
+		{
+			score = score + 1000;
+			scoreText = "score: " + score;
+		}
+	}
+}
 	
 
 
