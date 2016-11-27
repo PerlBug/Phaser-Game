@@ -47,7 +47,9 @@ function create()
 
 
 	background = game.add.sprite(0,0, 'background');
+	game.physics.arcade.checkCollision.left = false;
 
+	
 
 	platforms = game.add.group(); 
 	ground = game.add.tileSprite(0, game.world.height - 50, game.world.width, 50, 'ground');
@@ -57,8 +59,12 @@ function create()
 	platforms.enableBody = true;
 	ground.body.immovable = true;
 	ground.autoScroll(-200,0); 
-
-
+	ball.checkWorldBounds = true;
+	ball.events.onOutOfBounds.add(function(){
+    alert('Game over!');
+    location.reload();
+	}, this);
+	ground.body.friction.set(1);
 
 	ball.anchor.setTo(0.5, 0.5);
 
@@ -98,6 +104,11 @@ function update()
 	else
 	{
 		destroyPillars();
+	}
+
+	if(hitGround) {
+		ball.body.velocity.x   = -5;
+	
 	}
 
 }
@@ -156,10 +167,11 @@ function jump() {
 	if(hitGround ){
 		ball.body.velocity.y = -spaceKey.duration*3;
 
-
 		ball.body.velocity.x = 50;
+		
   
 	}
+
 
 	
 
