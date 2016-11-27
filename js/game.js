@@ -83,7 +83,7 @@ function create()
 
 	 //adding physics to ball
 	spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-	scoreText = game.add.text(game.world.width/2-100, 5, 'Score: 0', { font: '50px Arial', fill: '#0095DD' });
+	scoreText = game.add.text(game.world.width/2-100, 5, 'Points: 0', { font: '50px Arial', fill: '#0095DD' });
 
 }
 
