@@ -11,7 +11,7 @@ function preload() {
 	game.load.image('ground', 'assets/ground.png');
 	game.load.image('ball','assets/ball.png');
 	game.load.image('pillar','assets/pillar.png');
-	scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+	
 
 }
 
@@ -81,6 +81,7 @@ function create()
 
 	 //adding physics to ball
 	spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 }
 
 
@@ -181,6 +182,7 @@ function jump() {
 
 function scoring() {
 
+	if(pillars.length > 0)
 	for(var i = 0; i < pillars.length; i++)
 	{
 		if(pillar.x <= ball.x)
