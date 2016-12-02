@@ -185,8 +185,8 @@ function jump() {
 		console.log(spaceKey.duration*3);
 		jumpHeight = spaceKey.duration*3;
 
-		if(jumpHeight > 1200) {
-			jumpHeight = 1200;
+		if(jumpHeight > 800) {
+			jumpHeight = 800;
 		}
 		ball.body.velocity.y = -jumpHeight;
 
