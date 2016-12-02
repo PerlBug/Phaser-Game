@@ -191,7 +191,6 @@ function jump() {
 		ball.body.velocity.y = -jumpHeight;
 
 		ball.body.velocity.x = 50;
-		c
   
 	}
 
