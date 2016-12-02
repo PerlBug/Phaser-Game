@@ -179,13 +179,23 @@ function destroyPillars() {
 
 function jump() {
 
+
 	if(hitGround ){
-		ball.body.velocity.y = -spaceKey.duration*3;
+		var jumpHeight;
+		console.log(spaceKey.duration*3);
+		jumpHeight = spaceKey.duration*3;
+
+		if(jumpHeight > 1200) {
+			jumpHeight = 1200;
+		}
+		ball.body.velocity.y = -jumpHeight;
 
 		ball.body.velocity.x = 50;
-		
+		c
   
 	}
+
+
 
 }
 
